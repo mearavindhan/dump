@@ -1,6 +1,7 @@
 if(process.env.NODE_ENV !== "production") {
     require("dotenv").config()
 }
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -14,7 +15,6 @@ const passport  = require("passport")
 const LocalStrategy = require("passport-local")
 const User = require("./models/user");
 const Game = require("./models/Game")
-
 const gameRoutes = require("./routes/gamesRoute");
 const commentRoutes = require("./routes/commentsRoute")
 const userRoutes = require("./routes/usersRoute");
@@ -66,7 +66,7 @@ passport.deserializeUser(User.deserializeUser());
 
 
 app.get("/", (req, res) => {
-    res.send("Working....")
+    res.send("Home....")
 })
 
 app.use((req, res, next) => {
